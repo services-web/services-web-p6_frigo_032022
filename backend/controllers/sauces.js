@@ -63,14 +63,14 @@ exports.deleteSauce = (req, res, next) => {
 };
 
 
-// User is liking / disliking a sauce
+// like ou non associé a un id
 exports.likeSauce = (req, res, next) => {
   
   const sauceId = req.params.id;
   const userId = req.body.userId;
   const like = req.body.like;
-  // 1. user likes a sauce for the first time (like === 1)
-  // pushing the userId to usersLiked array; incrementing likes
+  // 1. user like pour premiere fois(like === 1)
+  // pousser l'userId vers le tableau usersLiked ; incrémenter les likes
   if (like === 1) {
     Sauce.updateOne(
       { _id: sauceId },
