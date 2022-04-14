@@ -3,6 +3,9 @@ const passwordSchema = require("../models/password");
 
 //checking user password is ok with our password model.
 module.exports = (req, res, next) => {
+  //console.log(req);
+  //console.log(req.body);
+  //console.log(req.body.password);
   if (!passwordSchema.validate(req.body.password)) {
     res.writeHead(
       400,

@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 
+
 // schéma of a sauce
+//mongoose.Schema fonction mise a dispo par mongodb
+//champs requi: required: true.
 const sauceSchema = mongoose.Schema({
   userId: { type: String, required: true },
   name: { type: String, required: true },
@@ -16,3 +19,7 @@ const sauceSchema = mongoose.Schema({
 });
 
 module.exports = mongoose.model("Sauce", sauceSchema);
+
+
+
+
