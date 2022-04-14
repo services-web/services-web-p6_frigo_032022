@@ -69,7 +69,7 @@ exports.likeSauce = (req, res, next) => {
   const sauceId = req.params.id;
   const userId = req.body.userId;
   const like = req.body.like;
-  // 1. user like pour premiere fois(like === 1)
+  // user like pour premiere fois(like === 1)
   // pousser l'userId vers le tableau usersLiked ; incrémenter les likes
   if (like === 1) {
     Sauce.updateOne(
@@ -108,7 +108,7 @@ exports.likeSauce = (req, res, next) => {
               res.status(200).json({ message: "Sauce dépréciée" });
             })
             .catch((error) => res.status(500).json({ error }));
-          // 3.2 user is changing his mind on his dislike
+          // l'utilisateur change d'avis disliked
         } else if (sauce.usersDisliked.includes(userId)) {
           Sauce.updateOne(
             { _id: sauceId },
